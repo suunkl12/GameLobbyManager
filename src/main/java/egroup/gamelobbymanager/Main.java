@@ -53,22 +53,24 @@ public class Main {
 //            System.out.print(ex.getMessage());
 //        }
 
-        try{
-                File file = new File("E:\\Documents\\NetBeansProjects\\GameServer\\Java\\GameServer\\target\\GameServer-1.0-jar-with-dependencies.jar");
-                if(!Desktop.isDesktopSupported())//check if Desktop is supported by Platform or not  
-                {  
-                    System.out.println("not supported");  
-                    return;  
-                }  
-                Desktop desktop = Desktop.getDesktop();  
-                
-                //checks file exists or not  
-                if(file.exists())         
-                    //opens the specified file  
-                    desktop.open(file);
-        }
-        catch (Exception ex){
-        }
+//        try{
+//                File file = new File("E:\\Documents\\NetBeansProjects\\GameServer\\Java\\GameServer\\target\\GameServer-1.0-jar-with-dependencies.jar");
+//                if(!Desktop.isDesktopSupported())//check if Desktop is supported by Platform or not  
+//                {  
+//                    System.out.println("not supported");  
+//                    return;  
+//                }  
+//                Desktop desktop = Desktop.getDesktop();  
+//                
+//                //checks file exists or not  
+//                if(file.exists())         
+//                    //opens the specified file  
+//                    desktop.open(file);
+//        }
+//        catch (Exception ex){
+//        }
+
+        new Main().start();
     }
     
     public void start() {
@@ -83,10 +85,6 @@ public class Main {
                         @Override
                         public void initChannel(SocketChannel ch)
                                 throws Exception {
-                            ch.pipeline().addLast((new ProtobufVarint32FrameDecoder()));
-                            ch.pipeline().addLast(new ProtobufDecoder(HotMessage.Packet.getDefaultInstance()));
-                            ch.pipeline().addLast(new ProtobufVarint32LengthFieldPrepender());
-                            ch.pipeline().addLast(new ProtobufEncoder());
                             
                             Random r = new Random();
                             
