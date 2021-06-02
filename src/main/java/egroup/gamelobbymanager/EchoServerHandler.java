@@ -48,12 +48,13 @@ public class EchoServerHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelReadComplete(ChannelHandlerContext ctx) {
         ctx.flush();
-        //ctx.writeAndFlush(Unpooled.EMPTY_BUFFER)
-        //.addListener(ChannelFutureListener.CLOSE);
+        ctx.writeAndFlush(Unpooled.EMPTY_BUFFER)
+        .addListener(ChannelFutureListener.CLOSE);
     }
     
     @Override
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
+        System.out.println (" A server has disconnected!");
     }
     
     @Override

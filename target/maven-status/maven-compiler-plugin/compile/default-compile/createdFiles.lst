@@ -1,1 +1,9 @@
+gameserver\HotMessage$Packet$1.class
+gameserver\HotMessage$Packet.class
+gameserver\HotMessage$Packet$Builder.class
+egroup\gamelobbymanager\Main$1.class
+gameserver\HotMessage$1.class
+gameserver\HotMessage.class
+egroup\gamelobbymanager\EchoServerHandler.class
+gameserver\HotMessage$PackageOrBuilder.class
 egroup\gamelobbymanager\Main.class
