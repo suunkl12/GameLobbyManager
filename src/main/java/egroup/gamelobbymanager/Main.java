@@ -32,7 +32,7 @@ import java.util.logging.Logger;
  * @author Khang
  */
 public class Main {
-    public static int port = 25000;
+    public static int port = 24300;
     /**
      * @param args the command line arguments
      */
@@ -41,7 +41,7 @@ public class Main {
         new Thread(m::start).start();
         
         new Thread() {
-            Process p = new ProcessBuilder("java","-jar","E:\\\\Documents\\\\NetBeansProjects\\\\GameServer\\\\Java\\\\GameServer\\\\target\\\\GameServer-1.0-jar-with-dependencies.jar" ).start();
+            Process p = new ProcessBuilder("java","-jar","E:\\\\Documents\\\\NetBeansProjects\\\\GameServer\\\\Java\\\\GameServer\\\\target\\\\GameServer-1.0-jar-with-dependencies.jar","4296","24300","localhost" ).start();
         }.start();
         
             // TODO code application logic here

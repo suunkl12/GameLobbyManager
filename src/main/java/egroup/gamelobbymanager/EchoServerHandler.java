@@ -36,7 +36,7 @@ public class EchoServerHandler extends ChannelInboundHandlerAdapter {
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         this.ctx = ctx;
         
-        //System.out.println ("Player " + p.getId () + " connected to the server!");
+        System.out.println ("A server has been connected");
        
     }
     

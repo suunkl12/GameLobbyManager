@@ -6,4 +6,5 @@ gameserver\HotMessage$1.class
 gameserver\HotMessage.class
 egroup\gamelobbymanager\EchoServerHandler.class
 gameserver\HotMessage$PackageOrBuilder.class
+egroup\gamelobbymanager\Main$2.class
 egroup\gamelobbymanager\Main.class
