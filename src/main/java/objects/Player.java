@@ -1,5 +1,8 @@
+package objects;
 
 import egroup.gamelobbymanager.EchoServerHandler;
+import egroup.gamelobbymanager.Main;
+import gameserver.utils.Ider;
 import java.util.HashMap;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -10,8 +13,18 @@ public class Player{
     public static Ider ider = new Ider();
     private Long l;
     private EchoServerHandler h;
+    public String username;
+    public String password;
     
-    private final long SHOOT_COOLDOWN = 400;
+    
+    public EchoServerHandler getHandler() {
+        return h;
+    }
+
+    public void setHandler(EchoServerHandler h) {
+        this.h = h;
+    }
+    private Integer id;
     private volatile long currentTime = 0;
     
     private ScheduledExecutorService e;
@@ -19,22 +32,20 @@ public class Player{
     
     public HashMap<Integer, Integer> staying = new HashMap<>();
     
-    public Player(Integer id, Vector2 position, Rotation rotation) {
-        super(id, position, rotation);
+    public Integer getId(){
+        return id;
+    }
+    
+    public Player(Integer id) {
+        this.id=id;
+        
         
         Player p = this;
         this.l = System.currentTimeMillis() - 1000;
         
         e = Executors.newSingleThreadScheduledExecutor();
         e.scheduleAtFixedRate(() -> {
-            if (!ServerMainTest.players.containsKey(p.getId())) {e.shutdown(); return;}
-
-            if (getDifference() >= ServerMainTest.TIMEOUT){
-
-                //Nếu như mất quá lâu để kết nói thì disconnect
-                //h.ctx.disconnect();
-                //return;
-            }
+            if (!Main.players.containsKey(p.getId())) {e.shutdown(); return;}
             
             //HashMap<Integer, Integer> map = new HashMap<>();
             

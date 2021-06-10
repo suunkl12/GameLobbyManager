@@ -5,8 +5,10 @@
  */
 package egroup.gamelobbymanager;
 
+import objects.Player;
 import com.mongodb.*;
 import gameserver.HotMessage;
+import gameserver.packets.Packet;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
@@ -22,6 +24,7 @@ import io.netty.handler.codec.protobuf.ProtobufVarint32LengthFieldPrepender;
 import java.net.InetSocketAddress;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 import java.util.logging.Level;
@@ -33,6 +36,19 @@ import java.util.logging.Logger;
  */
 public class Main {
     public static int port = 24300;
+    
+    public static HashMap<Integer, Player> players = new HashMap<>();
+    
+    public static HashMap<Integer, Class<? extends Packet>> packets = new HashMap<Integer, Class<? extends Packet>>(){{
+
+        //put(1, PingPacket.class);
+        //put(8, PlayerInfoPacket.class);
+        //put(9, CircleInfoPacket.class);
+        //put(10, PlayerPickupPacket.class);
+        //put(11, ObjectInfoPacket.class);
+
+    }};
+    
     /**
      * @param args the command line arguments
      */
